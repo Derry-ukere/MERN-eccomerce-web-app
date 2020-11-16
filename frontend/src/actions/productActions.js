@@ -245,26 +245,7 @@ export const listTopProducts = () => async (dispatch) => {
   }
 }
 
-export const listAndroids = () => async (dispatch) => {
-  try {
-    dispatch({ type: PRODUCT_ANDROID_REQUEST })
 
-    const { data } = await axios.get(`/api/products/categories/androids`)
-
-    dispatch({
-      type: PRODUCT_ANDROID_SUCCESS,
-      payload: data,
-    })
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_ANDROID_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    })
-  }
-}
 
 export const listIos = () => async (dispatch) => {
   try {
@@ -329,9 +310,6 @@ export const listAccessories = () => async (dispatch) => {
   }
 }
 
-
-
-
 export const listElectronics = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_ELECTRONICS_REQUEST })
@@ -352,3 +330,25 @@ export const listElectronics = () => async (dispatch) => {
     })
   }
 }
+
+
+export const listAndroids = () => async (dispatch) => {
+  try {
+    dispatch({ type:  PRODUCT_ANDROID_REQUEST })
+
+    const { data } = await axios.get('/api/products/categories/androids')
+
+    dispatch({
+      type:  PRODUCT_ANDROID_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type:  PRODUCT_ANDROID_FAIL,
+      payload:
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message,
+    })
+  }
+} 

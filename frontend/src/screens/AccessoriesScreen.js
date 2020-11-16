@@ -5,8 +5,6 @@ import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import Paginate from '../components/Paginate'
-import Meta from '../components/Meta'
 import {listAccessories} from '../actions/productActions'
 
 const AndroidScreen = ({ match }) => {
@@ -38,8 +36,7 @@ const AndroidScreen = ({ match }) => {
                 <Product product={product} />
               </Col>
             ))}
-          </Row>
-          
+          </Row>         
         </>
       )}
     </>

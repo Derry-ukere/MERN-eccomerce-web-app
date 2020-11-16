@@ -146,18 +146,7 @@ export const productTopRatedReducer = (state = { products: [] }, action) => {
   }
 }
 
-export const productAndroidReducer = (state = { products: [] }, action) => {
-  switch (action.type) {
-    case PRODUCT_ANDROID_REQUEST:
-      return { loading: true, products: [] }
-    case PRODUCT_ANDROID_SUCCESS:
-      return { loading: false, products: action.payload }
-    case PRODUCT_ANDROID_FAIL:
-      return { loading: false, error: action.payload }
-    default:
-      return state
-  }
-}
+
 
 export const productIosReducer = (state = { products: [] }, action) => {
   switch (action.type) {
@@ -205,6 +194,19 @@ export const productElectronicsReducer = (state = { products: [] }, action) => {
     case PRODUCT_ELECTRONICS_SUCCESS:
       return { loading: false, products: action.payload }
     case PRODUCT_ELECTRONICS_FAIL:
+      return { loading: false, error: action.payload }
+    default:
+      return state
+  }
+}
+
+export const productAndroidReducer = (state = { products: [] }, action) => {
+  switch (action.type) {
+    case PRODUCT_ANDROID_REQUEST:
+      return { loading: true, products: [] }
+    case PRODUCT_ANDROID_SUCCESS:
+      return { loading: false, products: action.payload }
+    case PRODUCT_ANDROID_FAIL:
       return { loading: false, error: action.payload }
     default:
       return state

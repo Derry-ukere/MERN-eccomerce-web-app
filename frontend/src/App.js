@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Header from './components/Header'
-import Topheader from './components/Topheader.js'
 import Footer from './components/Footer'
 import HomeScreen from './screens/HomeScreen'
 import ProductScreen from './screens/ProductScreen'
@@ -30,12 +29,14 @@ import AboutUsScreen from './screens/AboutUsScreen'
 import contactUsScreen from './screens/contactUsScreen'
 import RefundScreen from './screens/RefundPolicy.js'
 import DeliveryScreen from './screens/DeliverScreen.js'
+import Topheader from './components/Topheader.js'
+
 
 
 const App = () => {
   return (
     <Router>
-      <Topheader />
+    <Topheader />
       <Header />
       <main className='py-3'>
         <Container>
