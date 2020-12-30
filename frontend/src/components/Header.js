@@ -6,7 +6,6 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import SearchBox from './SearchBox'
 import { logout } from '../actions/userActions'
 
-
 const Header = () => {
   const dispatch = useDispatch()
 
@@ -19,7 +18,7 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar    bg='dark' variant='dark' expand='lg' collapseOnSelect >
+      <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect fixed='top'>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>Tech Prime</Navbar.Brand>
@@ -34,22 +33,22 @@ const Header = () => {
                 </Nav.Link>
               </LinkContainer>
               <NavDropdown title='Categories' id='adminmenu'>
-                  <LinkContainer to='/categories/Andriods'>
-                    <NavDropdown.Item>Android phones</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to='/categories/IOS'>
-                    <NavDropdown.Item>IOS Phones</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to='/categories/laptops'>
-                    <NavDropdown.Item>Laptops</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to='/categories/accessories'>
-                    <NavDropdown.Item>Accessories</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to='/categories/electronics'>
-                    <NavDropdown.Item>Electronics</NavDropdown.Item>
-                  </LinkContainer>
-                </NavDropdown>
+                <LinkContainer to='/categories/Andriods'>
+                  <NavDropdown.Item>Android phones</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to='/categories/IOS'>
+                  <NavDropdown.Item>IOS Phones</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to='/categories/laptops'>
+                  <NavDropdown.Item>Laptops</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to='/categories/accessories'>
+                  <NavDropdown.Item>Accessories</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to='/categories/electronics'>
+                  <NavDropdown.Item>Electronics</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id='username'>
                   <LinkContainer to='/profile'>
@@ -88,7 +87,3 @@ const Header = () => {
 }
 
 export default Header
-
-
-
-

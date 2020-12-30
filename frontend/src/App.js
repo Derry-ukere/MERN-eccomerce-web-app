@@ -29,14 +29,10 @@ import AboutUsScreen from './screens/AboutUsScreen'
 import contactUsScreen from './screens/contactUsScreen'
 import RefundScreen from './screens/RefundPolicy.js'
 import DeliveryScreen from './screens/DeliverScreen.js'
-import Topheader from './components/Topheader.js'
-
-
 
 const App = () => {
   return (
     <Router>
-    <Topheader />
       <Header />
       <main className='py-3'>
         <Container>
@@ -56,7 +52,7 @@ const App = () => {
           <Route path='/delivery' component={DeliveryScreen} />
           <Route path='/register' component={RegisterScreen} />
           <Route path='/reset' component={ForgetPasswordScreen} />
-          <Route path='/updatePassword/:id' component={UpdatePasswordScreen } />
+          <Route path='/updatePassword/:id' component={UpdatePasswordScreen} />
           <Route path='/profile' component={ProfileScreen} />
           <Route path='/product/:id' component={ProductScreen} />
           <Route path='/cart/:id?' component={CartScreen} />
@@ -90,10 +86,3 @@ const App = () => {
 }
 
 export default App
-
-
-// TODO
-// category dropdown
-// facebook and google login
-// reset password
-// pagination for category

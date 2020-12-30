@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { PaystackButton } from 'react-paystack'
 import axios from 'axios'
 import { PayPalButton } from 'react-paypal-button-v2'
 import { Link } from 'react-router-dom'
@@ -35,6 +36,20 @@ const OrderScreen = ({ match, history }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
+  const componentProps = {
+    email: 'ukderry@gmail.com',
+    amount: 100,
+    metadata: {
+      name: 'ukere d',
+      phone: '08165258860',
+    },
+    publicKey: 'pk_live_d430284c765414ce072328e84db6249327a70e1c',
+    text: 'Pay Now',
+    onSuccess: () =>
+      alert('Thanks for doing business with us! Come back soon!!'),
+    onClose: () => alert("Wait! You need this oil, don't go!!!!"),
+  }
+
   if (!loading) {
     //   Calculate prices
     const addDecimals = (num) => {
@@ -63,7 +78,7 @@ const OrderScreen = ({ match, history }) => {
       document.body.appendChild(script)
     }
 
-    if (!order || successPay || successDeliver  || order._id !== orderId) {
+    if (!order || successPay || successDeliver || order._id !== orderId) {
       dispatch({ type: ORDER_PAY_RESET })
       dispatch({ type: ORDER_DELIVER_RESET })
       dispatch(getOrderDetails(orderId))
@@ -74,7 +89,7 @@ const OrderScreen = ({ match, history }) => {
         setSdkReady(true)
       }
     }
-  }, [dispatch, orderId, successPay, successDeliver, order,history,userInfo])
+  }, [dispatch, orderId, successPay, successDeliver, order])
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult)
@@ -200,6 +215,11 @@ const OrderScreen = ({ match, history }) => {
                   {loadingPay && <Loader />}
                   {!sdkReady ? (
                     <Loader />
+                  ) : order.paymentMethod === 'stripe' ? (
+                    <PaystackButton
+                      {...componentProps}
+                      className='paystack-button'
+                    />
                   ) : (
                     <PayPalButton
                       amount={order.totalPrice}

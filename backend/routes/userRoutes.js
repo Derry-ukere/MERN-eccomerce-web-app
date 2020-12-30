@@ -12,7 +12,7 @@ import {
   resetPassword,
   getUserByToken,
   updateUserPassword,
-  contactPost
+  contactPost,
 } from '../controllers/userController.js'
 import { protect, admin } from '../middleware/authMiddleware.js'
 
@@ -23,14 +23,14 @@ router.route('/reset/:id').get(getUserByToken)
 router.route('/updated').put(updateUserPassword)
 router.route('/contact').post(contactPost)
 
-
 router
   .route('/profile')
   .get(protect, getUserProfile)
   .put(protect, updateUserProfile)
-  router.route('/:id')
+router
+  .route('/:id')
   .delete(protect, admin, deleteUser)
-  .get(protect,admin,getUserById)
-  .put(protect,admin,updateUser)
+  .get(protect, admin, getUserById)
+  .put(protect, admin, updateUser)
 
 export default router

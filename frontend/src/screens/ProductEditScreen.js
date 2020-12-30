@@ -47,7 +47,7 @@ const ProductEditScreen = ({ match, history }) => {
         setImage(product.image)
         setBrand(product.brand)
         setCategory(product.category)
-        setCountInStock(product.countInSock)
+        setCountInStock(product.countInStock)
         setDescription(product.description)
       }
     }
@@ -171,8 +171,7 @@ const ProductEditScreen = ({ match, history }) => {
                 placeholder='Enter category'
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              >
-               </Form.Control>
+              ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='description'>

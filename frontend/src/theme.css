@@ -1445,6 +1445,17 @@ _:-ms-fullscreen,
 :root .carousel {
   height: 100vh;
 }
+.carousel img {
+  height: 300px;
+  padding: 30px;
+  margin: 40px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.carousel a {
+  margin: 0 auto;
+}
 
 .carousel-cell {
   background-position: 50% 50%;

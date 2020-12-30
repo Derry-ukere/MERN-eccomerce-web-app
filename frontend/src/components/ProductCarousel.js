@@ -21,27 +21,31 @@ const ProductCarousel = () => {
   ) : error ? (
     <Message variant='danger'>{error}</Message>
   ) : (
-
-  <Carousel className= "">
-  {products.map((product) => (
-  <Carousel.Item>
-  <Link to={`/product/${product._id}`}>
-    <img
-      src={product.image} rounded
-      alt="First slide"
-      style ={{maxWidth:'1200px',width:'100%',height: "calc((var(--vh, 1vh) * 50))",display : "block",border:'2px',padding:'10px'}}
-    />
-    </Link>
-  </Carousel.Item>
-  ))}
-</Carousel>
+    <Carousel className='' style={{ marginTop: '95px' }}>
+      {products.map((product) => (
+        <Carousel.Item>
+          <Link to={`/product/${product._id}`}>
+            <img
+              src={product.image}
+              rounded
+              alt='First slide'
+              style={{
+                width: '100%',
+                height: 'calc((var(--vh, 1vh) * 50))',
+                display: 'block',
+                objectFit: 'cover',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            />
+          </Link>
+        </Carousel.Item>
+      ))}
+    </Carousel>
   )
 }
 
 export default ProductCarousel
-
-
-
 
 // <div class="flickity-viewport" style="touch-action: pan-y;">
 //     <div class="flickity-slider" style="left: 0px; transform: translateX(-100%);">

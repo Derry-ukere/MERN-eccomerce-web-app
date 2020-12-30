@@ -31,8 +31,6 @@ const getProducts = asyncHandler(async (req, res) => {
 const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id)
 
-
-
   if (product) {
     res.json(product)
   } else {
@@ -162,15 +160,15 @@ const getTopProducts = asyncHandler(async (req, res) => {
 // @route   GET /api/products/categories/androids
 // @access  Public
 const getAndroid = asyncHandler(async (req, res) => {
-  const products = await Product.find({"category": "Android"}) 
-    res.json( products)
-  })
+  const products = await Product.find({ category: 'Android' })
+  res.json(products)
+})
 
 // @desc    Get IOS CATEGORIES
 // @route   GET /api/products/categories/ios
 // @access  Public
 const getIos = asyncHandler(async (req, res) => {
-  const products = await Product.find({"category": "IOS"})
+  const products = await Product.find({ category: 'IOS' })
   res.json(products)
 })
 
@@ -178,7 +176,7 @@ const getIos = asyncHandler(async (req, res) => {
 // @route   GET /api/products/categories/laptops
 // @access  Public
 const getlaptops = asyncHandler(async (req, res) => {
-  const products = await Product.find({"category": "Laptops"})
+  const products = await Product.find({ category: 'Laptops' })
 
   res.json(products)
 })
@@ -187,7 +185,7 @@ const getlaptops = asyncHandler(async (req, res) => {
 // @route   GET /api/products/categories/laptops
 // @access  Public
 const getElectronics = asyncHandler(async (req, res) => {
-  const products = await Product.find({"category": "Electronics"})
+  const products = await Product.find({ category: 'Electronics' })
   res.json(products)
 })
 
@@ -195,13 +193,9 @@ const getElectronics = asyncHandler(async (req, res) => {
 // @route   GET /api/products/categories/laptops
 // @access  Public
 const getAccessories = asyncHandler(async (req, res) => {
-  const products = await Product.find({"category": "Accessories"})
+  const products = await Product.find({ category: 'Accessories' })
   res.json(products)
 })
-
-
-
-
 
 export {
   getProducts,
